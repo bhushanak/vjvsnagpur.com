@@ -9,3 +9,6 @@
         </ul>
         <a href="#" class="btn-donate">Donate Now</a>
     </nav>
+
+<?php include 'gallery.html';?>
+
