@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Donar Charity HTML Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Onest:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+	
+<link rel="stylesheet" href="my_vjvs.css">
+
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo"><img src="LogoVJVSFlower.png" alt="About Our Mission" style="width: 5%;">VJVS<span>Nagpur</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+			<li><a href="Special_School.html">Special School</a></li>
+			<li><a href="Workshop.html">Workshop</a></li>
+            <li><a href="Videos.html">Videos</a></li>
+			<li><a href="Media.html">Media</a></li>
+            <li><a href="Achievements.html">Achievements</a></li>
+            <li><a href="Certificates.html">Certificates</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+        <a href="Donate_Now.html" class="btn-donate">Donate Now</a>
+    </nav>
+	
+    <section class="breadcrumb-section">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <div class="breadcrumb-nav">
+                Home <span>//</span> Contact Us
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-info-area">
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-text">
+                    <h3>Office Address</h3>
+                    <p>66, Jawahar Nagar, Nagpur, <br> Maharashtra 440024</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-text">
+                    <h3>Phone Number</h3>
+                    <p>+91 87935 99645</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <div class="info-text">
+                    <h3>Email Address</h3>
+                    <p>vidarbhajeevan@gmail.com </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-main-area">
+        <div class="contact-wrapper">
+            
+            <div class="contact-form-side">
+                <span class="section-tag">Write a Message</span>
+                <h2 class="section-title">Have Any Questions? <br> Let’s Get In Touch</h2>
+                
+                <form name="contact" method="POST" data-netlify="true" class="contact-form-box">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Phone Number">
+                    <input type="text" placeholder="Subject">
+                    <div class="full-width">
+                        <textarea rows="6" placeholder="Write Your Message..."></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="submit-btn">
+                            Send Message <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+				
+            </div>
+
+            <div class="contact-map-side">
+                <div class="google-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d930.4351315704965!2d79.10765724514562!3d21.12290844828489!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c101167228ad%3A0xd463add0cff09c4c!2sLate.Sachin%20Singam%20Workshop!5e0!3m2!1sen!2sin!4v1768475395847!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('.contact-form-box');
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // --- 1. THE DATA MODEL (Capturing the Form Data) ---
+        const formData = {
+            name: contactForm.querySelector('input[name="name"]').value,
+            email: contactForm.querySelector('input[name="email"]').value,
+            phone: contactForm.querySelector('input[name="phone"]').value,
+            subject: contactForm.querySelector('input[name="subject"]').value,
+            message: contactForm.querySelector('textarea[name="message"]').value,
+            submittedAt: new Date().toISOString()
+        };
+
+        // Log the model to the console to see it working
+        console.log("Form Model Captured:", formData);
+
+        // --- 2. THE SUBMISSION LOGIC (The "Controller") ---
+        
+        // If using Netlify Forms, we send the data as a URL-encoded string
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({
+                "form-name": "contact", // Matches the 'name' attribute on your <form>
+                ...formData
+            }).toString(),
+        })
+        .then(() => {
+            alert("Thank you! Your message has been sent successfully.");
+            contactForm.reset(); // Clear the form
+        })
+        .catch((error) => {
+            alert("Oops! There was an error submitting the form.");
+            console.error("Submission Error:", error);
+        });
+    });
+});
+</script>
+
+
+
+</body>
+</html>

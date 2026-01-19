@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VJVS - Workshop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Onest:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+	
+<link rel="stylesheet" href="my_vjvs.css">
+
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo"><img src="LogoVJVSFlower.png" alt="About Our Mission" style="width: 5%;">VJVS<span>Nagpur</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+			<li><a href="Special_School.html">Special School</a></li>
+			<li><a href="Workshop.html">Workshop</a></li>
+            <li><a href="Videos.html">Videos</a></li>
+			<li><a href="Media.html">Media</a></li>
+            <li><a href="Achievements.html">Achievements</a></li>
+            <li><a href="Certificates.html">Certificates</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+        <a href="Donate_Now.html" class="btn-donate">Donate Now</a>
+    </nav>
+    <section class="breadcrumb-section">
+        <h1>Workshop</h1>
+    </section>
+	
+
+    <section class="gallery-area"><p>Transitioning into adulthood brings new challenges, and our Vocational Workshop for individuals above 18 years is designed to turn those challenges into opportunities. Here, our students move beyond the classroom to learn tangible craft skills, such as making candles, greeting cards, or hand-woven items. This program is more than just a creative outlet; it is a path to dignity and financial empowerment. By producing high-quality goods that are sold in the market, our students experience the pride of earning their own income, proving that with the right training, they can contribute meaningfully to the economy and lead a life of purpose.</p></br>
+        <div class="gallery-grid parent-container">
+            
+<a href="School\	Special_School (9).jpeg	" class="gallery-item" title="	Special_School	"><img src="School\	Special_School (9).jpeg	" alt="Gallery"><div class="gallery-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div><div class="gallery-info"><h4>	School For Special Kids	</h4><p>Education</p></div></div></a>
+
+
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize Magnific Popup
+            $('.parent-container').magnificPopup({
+                delegate: 'a', // The child elements that should be clickable
+                type: 'image',
+                gallery: {
+                    enabled: true, // This enables the scrolling/sliding feature
+                    navigateByImgClick: true,
+                    preload: [0,1] 
+                },
+                image: {
+                    titleSrc: 'title' // Takes the title from the 'title' attribute of the <a> tag
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300 // Duration of the opening animation
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+</html>

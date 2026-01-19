@@ -1,23 +1,192 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VJVS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&family=Onest:wght@400;700&display=swap" rel="stylesheet">
+    <title>Donar - Nonprofit & Charity Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Onest:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	
 <link rel="stylesheet" href="my_vjvs.css">
+	    <style>
+		:root {
+            --primary: #2da15f;
+            --secondary: #ff7e16;
+            --dark: #1c2224;
+            --light-gray: #f4f7f6;
+            --white: #ffffff;
+            --text: #555555;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito Sans', sans-serif; color: var(--text); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, .brand-font { font-family: 'Onest', sans-serif; color: var(--dark) }
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: var(--white);
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 28px; font-weight: 700; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: var(--dark); font-weight: 600; }
+        .nav-links a:hover { background-color: #ff7e16;
+    padding: 10px;
+    border-radius: 10px;
+    color: white; }
+        .btn-donate { background: var(--primary); color: #fff; padding: 12px 28px; border-radius: 50px; font-weight: 700; }
+        .btn-donate:hover { background: var(--secondary); transform: translateY(-3px); }
+
+        /* --- SECTION GENERIC --- */
+        section { padding: 90px 8%; }
+        .section-tag { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; }
+        .section-title { font-size: 2.5rem; margin-bottom: 20px; max-width: 600px; }
+
+        /* --- ABOUT SECTION --- */
+        .about-container { display: flex; align-items: center; gap: 50px; }
+        .about-img { flex: 1; position: relative; }
+        .about-img img { width: 100%; border-radius: 20px; }
+        .experience-badge {
+            position: absolute; bottom: -20px; right: -20px;
+            background: var(--secondary); color: #fff; padding: 20px;
+            border-radius: 15px; text-align: center;
+        }
+        .about-content { flex: 1; }
+        .about-features { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .feature-item i { color: var(--primary); margin-right: 10px; font-size: 1.2rem; }
+
+        /* --- CAUSES SECTION --- */
+        .bg-light { background: var(--light-gray); }
+        .causes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .cause-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .cause-img { height: 240px; background-size: cover; background-position: center; }
+        .cause-info { padding: 25px; }
+        .progress-bar { height: 8px; background: #eee; border-radius: 10px; margin: 15px 0; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--primary); border-radius: 10px; }
+
+        /* --- EVENTS SECTION --- */
+        .event-list { display: flex; flex-direction: column; gap: 20px; }
+        .event-item {
+            display: flex; align-items: center; background: #fff; 
+            padding: 20px; border-radius: 15px; border-left: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .event-date { background: var(--light-gray); padding: 15px; border-radius: 10px; text-align: center; margin-right: 30px; min-width: 80px; }
+        .event-date span { display: block; font-weight: 700; color: var(--primary); font-size: 1.4rem; }
+        .event-details h3 { font-size: 1.2rem; margin-bottom: 5px; }
+
+        /* --- FOOTER --- */
+        afooter { background: var(--dark); color: #abb1b3; padding: 80px 8% 30px; }
+        .afooter-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+        .afooter-logo { color: #fff; font-size: 26px; margin-bottom: 20px; display: block; }
+        .afooter-title { color: #fff; font-size: 1.2rem; margin-bottom: 25px; font-weight: 700; }
+        .afooter-links li { margin-bottom: 12px; }
+        .afooter-links a { color: #abb1b3; }
+        .afooter-links a:hover { color: var(--primary); padding-left: 5px; }
+        
+        .anewsletter input {
+            width: 100%; padding: 15px; border: none; border-radius: 5px; margin-bottom: 10px;
+            background: #2a3235; color: #fff;
+        }
+        .afooter-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; text-align: center; font-size: 0.9rem; }
+
+        @amedia (max-width: 992px) {
+            .aabout-container, .afooter-grid { grid-template-columns: 1fr; flex-direction: column; }
+            .anav-links { display: none; }
+        }
+		
+		
+		/* --- DIFFERENCE SECTION STYLES --- */
+        .difference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .diff-card {
+            padding: 40px 30px;
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        /* Hover effect background */
+        .diff-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 0;
+            background: var(--primary);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .diff-card:hover::before, .diff-card.active::before {
+            height: 100%;
+        }
+
+        .diff-card:hover, .diff-card.active {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .diff-card:hover h3, .diff-card:hover p, .diff-card:hover .diff-link,
+        .diff-card.active h3, .diff-card.active p, .diff-card.active .diff-link {
+            color: #fff;
+        }
+
+        .diff-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-gray);
+            color: var(--primary);
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        .diff-card:hover .diff-icon, .diff-card.active .diff-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .diff-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .diff-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+    </style>
 
 </head>
 <body>
-
+		
     <nav>
-        <a href="index.html" class="logo"><img src="LogoVJVSFlower.png" alt="About Our Mission" style="width: 5%;">VJVS<span>Nagpur</span></a>
+        <a href="index.html" class="logo">VJVS<span>Nagpur</span></a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="About.html">About</a></li>
-			<li><a href="Special_School.html">School</a></li>
+			<li><a href="Special_School.html">Special School</a></li>
 			<li><a href="Workshop.html">Workshop</a></li>
             <li><a href="Videos.html">Videos</a></li>
 			<li><a href="Media.html">Media</a></li>
@@ -27,189 +196,31 @@
         </ul>
         <a href="Donate_Now.html" class="btn-donate">Donate Now</a>
     </nav>
-<!--
-    <header class="hero">
-        <div class="hero-content">
-            <p>Small Efforts, Big Changes</p>
-            <h1>Your Donation Can Save <br> A Child's Life Today</h1>
-            <a href="#" class="btn-donate" style="background: var(--secondary-color); padding: 15px 40px;">Get Started</a>
-        </div>
-    </header>
--->
-<style>
-    /* Counter Section Styles */
-    .funfact-area {
-        padding: 80px 0;
-        background-color: var(--bg-light); /* Light gray/green background */
-        text-align: center;
-    }
-    
-    .funfact-grid {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        margin: 0 auto;
-        gap: 30px;
-    }
 
-    .funfact-item {
-        flex: 1;
-        min-width: 200px;
-        padding: 20px;
-    }
-
-    .funfact-icon {
-        font-size: 3rem;
-        color: var(--primary);
-        margin-bottom: 15px;
-    }
-
-    .funfact-number {
-        font-family: 'Onest', sans-serif;
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--dark);
-        margin-bottom: 5px;
-        display: block;
-    }
-
-    .funfact-text {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--text);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .funfact-grid { flex-direction: column; }
-    }
-</style>
     <section id="about" class="about-section">
         <div class="about-container">
             <div class="about-img">
-                <img src="School/Special_School%20(6).jpeg" alt="About Charity">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=800" alt="About Charity">
                 <div class="experience-badge">
-                    <h2>30+</h2>
+                    <h2>25+</h2>
                     <p>Years Experience</p>
                 </div>
             </div>
             <div class="about-content">
                 <span class="section-tag">About Our Foundation</span>
                 <h2 class="section-title">We Are Non-Profit Charity Organization</h2>
-                <p>At the heart of our organization is a deep commitment to creating a world where no child is left behind due to their mental or physical limitations.</p>
+                <p>We work to help people in need across the globe. Our mission is to provide clean water, quality education, and medical support to underprivileged communities.</p>
                 <div class="about-features">
-                    <div class="feature-item"><i class="fas fa-check-circle"></i> Holistic Life-Cycle Support</div>
-                    <div class="feature-item"><i class="fas fa-check-circle"></i> Dignity Through Skill Development</div>
-                    <div class="feature-item"><i class="fas fa-check-circle"></i> Specialized & Compassionate Care</div>
-                    <div class="feature-item"><i class="fas fa-check-circle"></i> Community-Driven Social Impact</div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i> Pure Water For People</div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i> Medical Facilities</div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i> Education for Children</div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i> Disaster Relief</div>
                 </div>
                 <br>
-                <a href="About.html" class="btn-donate" style="background: var(--dark);">Learn More</a>
+                <a href="#" class="btn-donate" style="background: var(--dark);">Learn More</a>
             </div>
         </div>
     </section>
-
-<section class="funfact-area">
-    <div class="funfact-grid">
-        
-        <div class="funfact-item">
-            <div class="funfact-icon"><i class="fas fa-user-graduate"></i></div>
-            <span class="funfact-number">30+</span>
-            <p class="funfact-text">Students Enrolled</p>
-        </div>
-
-        <div class="funfact-item">
-            <div class="funfact-icon"><i class="fas fa-tools"></i></div>
-            <span class="funfact-number">50+</span>
-            <p class="funfact-text">Vocational Trainees</p>
-        </div>
-
-        <div class="funfact-item">
-            <div class="funfact-icon"><i class="fas fa-hand-holding-heart"></i></div>
-            <span class="funfact-number">12+</span>
-            <p class="funfact-text">Types of Crafts</p>
-        </div>
-
-        <div class="funfact-item">
-            <div class="funfact-icon"><i class="fas fa-calendar-check"></i></div>
-            <span class="funfact-number">30+</span>
-            <p class="funfact-text">Years of Service</p>
-        </div>
-
-    </div>
-</section>
-
-    <section class="section-padding" id="causes">
-        <div class="section-header">
-            <p>Recent Causes</p>
-            <h2>Help Us For Our Projects</h2>
-        </div>
-
-        <div class="causes-grid">
-            <div class="cause-card">
-                <div class="cause-img" style="background-image: url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=800');"></div>
-                <div class="cause-body">
-                    <h3>Clean Water for Africa</h3>
-                    <p>Providing sustainable water solutions to remote villages in Africa.</p>
-                    <div class="progress-container">
-                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
-                        <div class="progress-stats">
-                            <span>Raised: $8,500</span>
-                            <span>Goal: $10,000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cause-card">
-                <div class="cause-img" style="background-image: url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800');"></div>
-                <div class="cause-body">
-                    <h3>Education For All</h3>
-                    <p>Help us provide books and school supplies to underprivileged children.</p>
-                    <div class="progress-container">
-                        <div class="progress-bar"><div class="progress-fill" style="width: 45%; background: var(--secondary-color);"></div></div>
-                        <div class="progress-stats">
-                            <span>Raised: $4,500</span>
-                            <span>Goal: $10,000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cause-card">
-                <div class="cause-img" style="background-image: url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800');"></div>
-                <div class="cause-body">
-                    <h3>Medical Care Fund</h3>
-                    <p>Emergency medical aid and vaccinations for local communities.</p>
-                    <div class="progress-container">
-                        <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
-                        <div class="progress-stats">
-                            <span>Raised: $6,000</span>
-                            <span>Goal: $10,000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<!--
-    <footer>
-        <h2 class="logo">DON<span>AR.</span></h2>
-        <p>Building a better world, one donation at a time.</p>
-        <div class="footer-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
-        <hr style="opacity: 0.1; margin: 20px 0;">
-        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Donar Charity Template. All Rights Reserved.</p>
-    </footer>
--->
-
 
     <section id="causes" class="bg-light">
         <div style="text-align: center; margin-bottom: 50px;">
@@ -282,7 +293,7 @@
 <section id="blog" class="bg-light">
         <div style="text-align: center; margin-bottom: 50px;">
             <span class="section-tag">News & Articles</span>
-            <h2 class="section-title" style="margin: 0 auto;">Latest News & Events</h2>
+            <h2 class="section-title" style="margin: 0 auto;">Latest News & Articles from <br> the Blog Posts</h2>
         </div>
 
         <div class="causes-grid"> <div class="cause-card blog-card">
@@ -379,8 +390,9 @@
             </div>
         </div>
     </section>
-	        <!--
-	<section id="about" class="about-section">
+	
+	
+<section id="about" class="about-section">
     <div class="about-container">
         <div class="about-img">
             <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=800" alt="About Our Mission">
@@ -389,7 +401,7 @@
                 <p>Years of Service</p>
             </div>
         </div>
-
+        
         <div class="about-content">
             <span class="section-tag">Who We Are</span>
             <h2 class="section-title">Empowering Lives Through Specialized Care & Social Action</h2>
@@ -424,14 +436,13 @@
                 </div>
             </div>
         </div>
-		-->
     </div>
 </section>
 	
     <footer>
         <div class="afooter-grid">
-            <div><img src="LogoVJVSFlower.png" alt="About Our Mission" style="width: 30%;">
-                <a href="#" class="logo afooter-logo abrand-font">Vidarbha Jivan Vikas Sanstha <span>Nagpur</span></a>
+            <div>
+                <a href="#" class="logo afooter-logo abrand-font">DON<span>AR.</span></a>
                 <p>We are a nonprofit organization that focuses on providing help and hope to those who need it most through community-driven projects.</p>
                 <div style="margin-top: 20px;">
                     <a href="#" style="color: #fff; margin-right: 15px;"><i class="afab afa-facebook-f"></i></a>
@@ -442,18 +453,18 @@
             <div>
                 <h4 class="afooter-title">Quick Links</h4>
                 <ul class="afooter-links">
-                    <li><a href="A_Message_From_Our_President.html">A Message From Our President</a></li>
-                    <li><a href="From_the_Principals_Desk_Workshop.html">Principal’s Desk, Workshop</a></li>
-                    <li><a href="From_the_Principals_Desk_School.html">Principal’s Desk, School</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Causes</a></li>
+                    <li><a href="#">Upcoming Events</a></li>
+                    <li><a href="#">Latest News</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="afooter-title">Support</h4>
                 <ul class="afooter-links">
-                    <li><a href="Donate_Now.html">Donate Now</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#">Donate Now</a></li>
+                    <li><a href="#">Become a Volunteer</a></li>
                     <li><a href="#">Fundraising</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
@@ -463,53 +474,12 @@
                 <p style="margin-bottom: 15px;">Subscribe to get latest updates and news.</p>
                 <input type="email" placeholder="Your Email Address">
                 <button class="btn-donate" style="border:none; width: 100%; cursor: pointer;">Subscribe Now</button>
-				
-		<div class="footer-links">
-            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://maps.app.goo.gl/Qm2V26FmrLzCxJic9" target="_blank"><i class="fa-solid fa-location-dot"></i></a>
-        </div>
             </div>
         </div>
         <div class="afooter-bottom">
-            <p>&copy; 1992 Vidarbha Jivan Vikas Sanstha, Nagpur. All Rights Reserved.</p>
+            <p>&copy; 2026 Donar Charity Organization. All Rights Reserved.</p>
         </div>
     </footer>
 
-<script>
-    const counters = document.querySelectorAll('.funfact-number');
-    const speed = 200; // The higher the slower
-
-    const startCounters = () => {
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('innerText').replace('+', '');
-                const count = +counter.innerText.replace('+', '');
-                const inc = target / speed;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc) + "+";
-                    setTimeout(updateCount, 1);
-                } else {
-                    counter.innerText = target + "+";
-                }
-            };
-            updateCount();
-        });
-    }
-
-    // Optional: Only start when scrolled into view
-    window.addEventListener('scroll', function() {
-        const section = document.querySelector('.funfact-area');
-        const position = section.getBoundingClientRect();
-        if(position.top < window.innerHeight && position.bottom >= 0) {
-            startCounters();
-        }
-    }, { once: true });
-</script>
-
 </body>
 </html>
-

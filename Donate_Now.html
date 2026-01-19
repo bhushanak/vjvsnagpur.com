@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Volunteer - Donar Charity HTML Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Onest:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2da15f;
+            --secondary: #ff7e16;
+            --dark: #1c2224;
+            --white: #ffffff;
+            --bg-light: #f4f7f6;
+            --text: #666666;
+            --border: #edeef2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito Sans', sans-serif; color: var(--text); line-height: 1.8; }
+        h1, h2, h3, h4 { font-family: 'Onest', sans-serif; color: var(--dark); font-weight: 700; }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- BREADCRUMB --- */
+        .breadcrumb-section {
+            background: linear-gradient(rgba(28, 34, 36, 0.85), rgba(28, 34, 36, 0.85)), 
+                        url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800');
+            background-size: cover; background-position: center; padding: 120px 0; text-align: center;
+        }
+        .breadcrumb-section h1 { color: #fff; font-size: 3.5rem; margin-bottom: 10px; }
+        .breadcrumb-nav { color: #fff; font-weight: 700; }
+        .breadcrumb-nav span { color: var(--primary); margin: 0 10px; }
+
+        /* --- VOLUNTEER BENEFITS SECTION --- */
+        .benefit-area { padding: 100px 8%; background: var(--white); }
+        .benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        .benefit-card {
+            padding: 40px; border: 1px solid var(--border); border-radius: 20px;
+            transition: 0.4s; text-align: center;
+        }
+        .benefit-card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+        
+        .benefit-icon {
+            width: 80px; height: 80px; background: rgba(45, 161, 95, 0.1); color: var(--primary);
+            font-size: 2rem; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; margin: 0 auto 25px;
+        }
+
+        /* --- VOLUNTEER FORM SECTION --- */
+        .volunteer-form-area { padding: 80px 8% 120px; background: var(--bg-light); }
+        .form-wrapper { 
+            display: flex; background: var(--white); border-radius: 30px; 
+            overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .form-image { flex: 1; min-height: 600px; background: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800') center/cover; }
+        
+        .form-content { flex: 1.2; padding: 60px; }
+        .section-tag { color: var(--primary); font-weight: 700; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        .section-title { font-size: 2.5rem; margin-bottom: 35px; line-height: 1.2; }
+
+        .v-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .full-width { grid-column: span 2; }
+
+        .v-form input, .v-form select, .v-form textarea {
+            width: 100%; padding: 18px 25px; border-radius: 12px; border: 1px solid var(--border);
+            background: var(--bg-light); outline: none; font-family: inherit; transition: 0.3s;
+        }
+        .v-form input:focus, .v-form textarea:focus { border-color: var(--primary); background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        .btn-submit {
+            background: var(--primary); color: #fff; padding: 20px 45px; border: none;
+            border-radius: 50px; font-weight: 700; font-size: 1.1rem; cursor: pointer;
+            transition: 0.4s; margin-top: 10px;
+        }
+        .btn-submit:hover { background: var(--dark); transform: translateY(-5px); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .form-wrapper { flex-direction: column; }
+            .form-image { min-height: 300px; }
+            .v-form { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+            .form-content { padding: 40px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="breadcrumb-section">
+        <h1>Become A Volunteer</h1>
+        <div class="breadcrumb-nav">Home <span>//</span> Volunteer</div>
+    </section>
+
+    <section class="benefit-area">
+        <div class="benefit-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                <h3>Make Impact</h3>
+                <p>Small actions lead to big changes. Help us reach those who need it most.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                <h3>Great Community</h3>
+                <p>Join a global network of passionate individuals making a difference.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-award"></i></div>
+                <h3>Get Certified</h3>
+                <p>We provide official recognition and certificates for your service hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="volunteer-form-area">
+        <div class="form-wrapper">
+            <div class="form-image"></div>
+
+            <div class="form-content">
+                <span class="section-tag">Join Our Team</span>
+                <h2 class="section-title">Ready To Help People? <br> Register Now</h2>
+
+                <form class="v-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Phone Number">
+                    <select>
+                        <option value="">Select Occupation</option>
+                        <option>Student</option>
+                        <option>Professional</option>
+                        <option>Retired</option>
+                    </select>
+                    <input type="text" placeholder="Date of Birth" class="full-width">
+                    <div class="full-width">
+                        <textarea rows="5" placeholder="Why do you want to join us?"></textarea>
+                    </div>
+                    <div class="full-width">
+                        <button type="submit" class="btn-submit">Submit Request <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

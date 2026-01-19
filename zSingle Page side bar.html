@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - Donar Charity HTML Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Onest:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2da15f;
+            --secondary: #ff7e16;
+            --dark: #1c2224;
+            --white: #ffffff;
+            --bg-light: #f4f7f6;
+            --text: #666666;
+            --border: #edeef2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito Sans', sans-serif; color: var(--text); line-height: 1.8; }
+        h1, h2, h3, h4 { font-family: 'Onest', sans-serif; color: var(--dark); font-weight: 700; }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- BREADCRUMB --- */
+        .breadcrumb-section {
+            background: linear-gradient(rgba(28, 34, 36, 0.85), rgba(28, 34, 36, 0.85)), 
+                        url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover; background-position: center; padding: 120px 0; text-align: center;
+        }
+        .breadcrumb-section h1 { color: #fff; font-size: 3.5rem; margin-bottom: 10px; }
+        .breadcrumb-nav { color: #fff; font-weight: 700; }
+        .breadcrumb-nav span { color: var(--primary); margin: 0 10px; }
+
+        /* --- EVENT DETAILS LAYOUT --- */
+        .event-details-area { padding: 100px 8%; }
+        .container { max-width: 1200px; margin: 0 auto; display: flex; gap: 50px; }
+        
+        .event-main-content { flex: 2; }
+        .event-sidebar { flex: 1; }
+
+        /* Main Image & Content */
+        .event-feature-img { width: 100%; border-radius: 20px; margin-bottom: 40px; }
+        .event-title { font-size: 2.5rem; margin-bottom: 25px; line-height: 1.2; }
+        .event-description p { margin-bottom: 20px; font-size: 1.05rem; }
+
+        /* Sidebar Info Card */
+        .event-info-card { 
+            background: var(--white); padding: 40px; border-radius: 20px; 
+            border: 1px solid var(--border); box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            position: sticky; top: 100px;
+        }
+        .info-title { font-size: 1.5rem; margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        
+        .info-item { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 25px; }
+        .info-icon { 
+            width: 50px; height: 50px; background: rgba(45, 161, 95, 0.1); 
+            color: var(--primary); border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .info-text strong { display: block; color: var(--dark); font-size: 1.1rem; }
+        .info-text span { font-size: 0.95rem; }
+
+        /* Map & Registration */
+        .btn-register {
+            width: 100%; background: var(--primary); color: #fff; padding: 18px;
+            border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700;
+            cursor: pointer; transition: 0.4s; margin-top: 10px;
+        }
+        .btn-register:hover { background: var(--dark); transform: translateY(-5px); }
+
+        .mini-map { margin-top: 30px; border-radius: 15px; overflow: hidden; height: 200px; border: 1px solid var(--border); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .container { flex-direction: column; }
+            .event-sidebar { order: 2; }
+            .event-info-card { position: relative; top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="breadcrumb-section">
+        <div class="container-text">
+            <h1>Special Education Workshop</h1>
+            <div class="breadcrumb-nav">Home <span>//</span> Event Details</div>
+        </div>
+    </section>
+
+    <main class="event-details-area">
+        <div class="container">
+            
+            <div class="event-main-content">
+                <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=1200" alt="Event" class="event-feature-img">
+                
+                <h2 class="event-title">Annual Awareness & Vocational Training Workshop 2026</h2>
+                
+                <div class="event-description">
+                    <p>This event is dedicated to empowering intellectually disabled girls through hands-on vocational training. At <strong>VSS Nagpur</strong>, we believe that independence is the greatest gift. During this workshop, participants will learn basic crafts, social interaction skills, and personal care routines.</p>
+                    
+                    <h3 style="margin: 30px 0 20px;">Event Overview</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                    
+                    <blockquote style="border-left: 5px solid var(--primary); padding: 20px 30px; background: var(--bg-light); border-radius: 10px; margin: 30px 0; font-style: italic; font-weight: 600; color: var(--dark);">
+                        "Empowering special children isn't just a charity; it's a responsibility toward a progressive society."
+                    </blockquote>
+                    
+                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                </div>
+            </div>
+
+            <aside class="event-sidebar">
+                <div class="event-info-card">
+                    <h3 class="info-title">Event Information</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="far fa-calendar-alt"></i></div>
+                        <div class="info-text">
+                            <strong>Date:</strong>
+                            <span>January 28, 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="far fa-clock"></i></div>
+                        <div class="info-text">
+                            <strong>Time:</strong>
+                            <span>10:00 AM - 04:00 PM</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-text">
+                            <strong>Location:</strong>
+                            <span>Indutai Dhoble Center, Nagpur</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-ticket-alt"></i></div>
+                        <div class="info-text">
+                            <strong>Cost:</strong>
+                            <span>Free Entry / Volunteer Based</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-register">Register For Event</button>
+
+                    <div class="mini-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.41709423525!2d79.00246534575855!3d21.15934029278913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0a5a31faf13%3A0x19b37d251ca19ff2!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1705250000000!5m2!1sen!2sin" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Standard - Donar Charity & Nonprofit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Onest:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2da15f;
+            --secondary: #ff7e16;
+            --dark: #1c2224;
+            --light-bg: #f8f9fa;
+            --border: #ececec;
+            --text: #666666;
+            --white: #ffffff;
+        }
+
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito Sans', sans-serif; color: var(--text); line-height: 1.7; background-color: #fff; }
+        h1, h2, h3, h4 { font-family: 'Onest', sans-serif; color: var(--dark); font-weight: 700; }
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER / NAVIGATION --- */
+        header { background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: sticky; top:0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+        .logo { font-size: 28px; font-weight: 700; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-header { background: var(--primary); color: #fff; padding: 12px 25px; border-radius: 50px; font-weight: 700; }
+
+        /* --- BREADCRUMB --- */
+        .breadcrumb-area {
+            background: linear-gradient(rgba(28, 34, 36, 0.8), rgba(28, 34, 36, 0.8)), 
+                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover; background-position: center; padding: 100px 0; text-align: center; color: #fff;
+        }
+        .breadcrumb-area h1 { color: #fff; font-size: 3.5rem; margin-bottom: 10px; }
+        .breadcrumb-links a { color: var(--primary); font-weight: 700; }
+        .breadcrumb-links span { margin: 0 10px; opacity: 0.7; }
+
+        /* --- LAYOUT --- */
+        .main-wrapper { max-width: 1200px; margin: 80px auto; padding: 0 20px; display: flex; gap: 50px; }
+        .blog-column { flex: 2; }
+        .sidebar-column { flex: 1; }
+
+        /* --- MAIN BLOG CONTENT --- */
+        .blog-article { margin-bottom: 60px; border-bottom: 2px solid #2da15f; padding-bottom: 60px; }
+        .blog-article:last-child { border-bottom: none; }
+        .blog-img { border-radius: 20px; overflow: hidden; position: relative; border: 1px solid var(--border); }
+        .blog-img img { width: 100%; display: block; transition: 0.5s; }
+        .blog-article:hover .blog-img img { transform: scale(1.05); }
+        
+        .blog-date-box {
+            position: absolute; bottom: 30px; left: 30px; background: var(--primary);
+            color: #fff; padding: 12px 25px; border-radius: 10px; font-weight: 700;
+        }
+
+        .blog-meta { margin: 25px 0 15px; display: flex; gap: 20px; font-size: 0.95rem; font-weight: 600; }
+        .blog-meta i { color: var(--primary); margin-right: 8px; }
+        
+        .blog-title { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
+        .blog-title:hover { color: var(--primary); }
+
+        .btn-more { display: inline-block; padding: 15px 35px; background: var(--dark); color: #fff; border-radius: 50px; font-weight: 700; }
+        .btn-more:hover { background: var(--primary); transform: translateY(-3px); }
+
+        /* --- SIDEBAR WIDGETS --- */
+        .widget { background: var(--light-bg); padding: 35px; border-radius: 20px; margin-bottom: 40px; }
+        .widget-title { font-size: 1.4rem; margin-bottom: 30px; position: relative; padding-bottom: 15px; }
+        .widget-title::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--primary); }
+
+        /* Search Widget */
+        .search-widget form { position: relative; }
+        .search-widget input { width: 100%; padding: 18px 25px; border-radius: 50px; border: 1px solid var(--border); outline: none; }
+        .search-widget button { position: absolute; right: 5px; top: 5px; width: 50px; height: 50px; border-radius: 50%; border: none; background: var(--primary); color: #fff; cursor: pointer; }
+
+        /* Categories */
+        .cat-list li { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px dashed #ccc; font-weight: 700; }
+        .cat-list li:hover { color: var(--primary); cursor: pointer; }
+
+        /* Recent Posts */
+        .recent-post { display: flex; gap: 15px; margin-bottom: 25px; align-items: center; }
+        .recent-post img { width: 90px; height: 90px; border-radius: 12px; object-fit: cover; }
+        .recent-post h4 { font-size: 1.05rem; line-height: 1.4; margin-bottom: 5px; }
+        .recent-post span { font-size: 0.85rem; color: var(--primary); font-weight: 700; }
+
+        /* Tags */
+        .tags-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tags-cloud a { background: #fff; padding: 8px 18px; border-radius: 5px; border: 1px solid var(--border); font-size: 0.9rem; font-weight: 600; }
+        .tags-cloud a:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        /* --- PAGINATION --- */
+        .pagination { display: flex; gap: 10px; margin-top: 50px; }
+        .page-link { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 10px; font-weight: 700; background: #fff; }
+        .page-link.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .page-link:hover:not(.active) { background: var(--dark); color: #fff; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--dark); color: #abb1b3; padding: 80px 0 30px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 0 20px; }
+        .footer-title { color: #fff; margin-bottom: 25px; font-size: 1.3rem; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a:hover { color: var(--primary); padding-left: 5px; }
+        .copyright { text-align: center; border-top: 1px solid #2a3235; margin-top: 50px; padding-top: 30px; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-wrapper { flex-direction: column; }
+            .sidebar-column { order: 2; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">DON<span>AR.</span></a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Causes</a></li>
+                <li><a href="#" style="color:var(--primary)">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <a href="#" class="btn-header">Donate Now</a>
+        </div>
+    </header>
+
+    <section class="breadcrumb-area">
+        <h1>News & Articles</h1>
+        <div class="breadcrumb-links">
+            <a href="#">Home</a> <span>//</span> Blog Standard
+        </div>
+    </section>
+
+    <div class="main-wrapper">
+        
+        <main class="blog-column">
+            
+            <article class="blog-article">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200" alt="Blog">
+                    <div class="blog-date-box">24 Jan, 2026</div>
+                </div>
+                <div class="blog-meta">
+                    <span><i class="far fa-user"></i> By Admin</span>
+                    <span><i class="far fa-comments"></i> 03 Comments</span>
+                    <span><i class="far fa-folder-open"></i> Charity</span>
+                </div>
+                <h2 class="blog-title">How To Provide Clean Water For The Rural People In Africa</h2>
+                <p>There are many variations of passages of available but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...</p>
+                <a href="#" class="btn-more">Read More <i class="fas fa-arrow-right" style="margin-left:8px"></i></a>
+            </article>
+
+            <article class="blog-article">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200" alt="Blog">
+                    <div class="blog-date-box">18 Jan, 2026</div>
+                </div>
+                <div class="blog-meta">
+                    <span><i class="far fa-user"></i> By Admin</span>
+                    <span><i class="far fa-comments"></i> 05 Comments</span>
+                    <span><i class="far fa-folder-open"></i> Education</span>
+                </div>
+                <h2 class="blog-title">Your Donation Can Save A Child’s Life Today From Hunger</h2>
+                <p>There are many variations of passages of available but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...</p>
+                <a href="#" class="btn-more">Read More <i class="fas fa-arrow-right" style="margin-left:8px"></i></a>
+            </article>
+
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link"><i class="fas fa-angle-right"></i></a>
+            </div>
+        </main>
+
+        <aside class="sidebar-column">
+            
+            <div class="widget search-widget">
+                <h3 class="widget-title">Search</h3>
+                <form>
+                    <input type="text" placeholder="Search here...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">Categories</h3>
+                <ul class="cat-list">
+                    <li><span>Charity Aid</span> <span>(05)</span></li>
+                    <li><span>Education</span> <span>(08)</span></li>
+                    <li><span>Medical & Health</span> <span>(03)</span></li>
+                    <li><span>Pure Water</span> <span>(02)</span></li>
+                    <li><span>Humanity</span> <span>(06)</span></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">Recent Posts</h3>
+                <div class="recent-post">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=150" alt="recent">
+                    <div>
+                        <span>24 Jan, 2026</span>
+                        <h4>Donation is hope for poor children</h4>
+                    </div>
+                </div>
+                <div class="recent-post">
+                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=150" alt="recent">
+                    <div>
+                        <span>20 Jan, 2026</span>
+                        <h4>Providing education for the kids</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">Popular Tags</h3>
+                <div class="tags-cloud">
+                    <a href="#">Charity</a>
+                    <a href="#">NGO</a>
+                    <a href="#">Water</a>
+                    <a href="#">Help</a>
+                    <a href="#">Donation</a>
+                    <a href="#">Medical</a>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <a href="#" class="logo" style="color:#fff; margin-bottom: 20px; display: block;">DON<span>AR.</span></a>
+                <p>We work worldwide to help people in need. Your support can change lives today.</p>
+            </div>
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Causes</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> 292, Jawahar Nagar, Nagpur</p>
+                <p><i class="fas fa-phone" style="color:var(--primary)"></i> +91 88888 51101</p>
+                <p><i class="fas fa-envelope" style="color:var(--primary)"></i> info@donar.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Donar Charity. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
